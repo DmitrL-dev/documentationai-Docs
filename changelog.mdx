@@ -1,0 +1,93 @@
+---
+title: GitHub Changelog
+description: Track the latest updates, new features, and improvements in GitHub to stay informed about platform enhancements.
+---
+
+## Recent Updates
+
+Stay current with GitHub's evolution. You receive notifications for updates that impact your workflow. Review the latest releases below to discover new AI capabilities, security enhancements, and collaboration tools.
+
+<Callout kind="info">
+  Subscribe to the GitHub changelog RSS feed or enable notifications in your account settings to get instant alerts on new releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "security"]}>
+## New Features
+
+- Introduced AI-powered code review suggestions using GitHub Copilot, helping you catch bugs before they merge.
+- Added real-time collaboration in pull requests with live cursors and inline comments.
+
+## Security Updates
+
+- Enhanced repository scanning with secret detection for over 100 new token patterns.
+- Implemented zero-trust access controls for Actions workflows.
+
+## Improvements
+
+- Reduced pull request merge times by 40% with optimized diff rendering.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- Launched GitHub Models playground for testing AI models directly in your browser.
+- New collaboration tool: @mentions in wikis now support threaded discussions.
+
+## Bug Fixes
+
+- Fixed intermittent failures in Codespaces startup, now succeeding 99.9% of the time.
+- Resolved API rate limiting issues for Dependabot alerts.
+
+<CodeGroup tabs="Before,After">
+````javascript
+// Before: Manual dependency check
+const deps = require('./package.json');
+if (deps.dependencies['lodash'] < '4.17.21') {
+  console.warn('Update lodash');
+}
+````
+````javascript
+// After: Using GitHub API for automated alerts
+const response = await fetch('https://api.github.com/repos/user/repo/dependabot/alerts');
+const alerts = await response.json();
+alerts.forEach(alert => console.log(`Update ${alert.package.name}`));
+````
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+## Breaking Changes
+
+- Deprecated legacy GraphQL v4 endpoints; migrate to v5 using the new schema explorer.
+
+## New Features
+
+- Integrated GitHub Copilot Chat in the VS Code extension for natural language code generation.
+
+## Deprecations
+
+- Removed support for SAML 1.1; upgrade to SAML 2.0 for enterprise SSO.
+
+</Update>
+
+## Upcoming Roadmap
+
+Explore what's next for GitHub. These highlights prepare you for future enhancements in AI, security, and collaboration.
+
+<Columns cols={3}>
+  <Card title="AI Advancements" icon="zap" href="/introduction">
+    Next-gen Copilot features for autonomous debugging.
+  </Card>
+  <Card title="Security Focus" icon="shield" href="/authentication">
+    Advanced threat modeling and auto-remediation.
+  </Card>
+  <Card title="Collaboration" icon="users" href="/quickstart">
+    Enterprise-grade project boards with AI insights.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Check the [GitHub blog](https://github.blog) for detailed release notes and migration guides.
+</Callout>

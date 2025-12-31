@@ -1,0 +1,164 @@
+---
+title: Authentication and Permissions
+description: Learn how to securely access GitHub using various authentication methods and manage permissions for your projects and teams.
+---
+
+## Overview
+
+Secure access to GitHub ensures you protect your repositories, teams, and data. GitHub supports multiple authentication methods including personal access tokens (PATs), SSH keys, OAuth apps, and two-factor authentication (2FA). Permissions control what actions you can perform across repositories, organizations, and teams.
+
+Choose the right method based on your workflow: PATs for API access, SSH for Git operations, and OAuth for integrations. Always enable 2FA for added security.
+
+<Callout kind="alert">
+  Never share your tokens, keys, or passwords. Use environment variables for secrets in your code.
+</Callout>
+
+## Authentication Methods
+
+GitHub offers flexible authentication options. Use the tabs below to explore each method.
+
+<Tabs>
+  <Tab title="Personal Access Tokens" icon="key">
+    
+## Create a Personal Access Token
+
+Follow these steps to generate a PAT with the necessary scopes.
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to your GitHub account settings at `https://github.com/settings/tokens`.
+  </Step>
+  <Step title="Generate New Token">
+    Click **Generate new token (classic)** and select scopes like `repo`, `user`, `workflow`.
+  </Step>
+  <Step title="Copy Token">
+    Copy the generated token immediately—it won't be shown again.
+  </Step>
+</Steps>
+
+### Use in API Requests
+
+Authenticate API calls with the `Authorization` header.
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token format: `Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+</ParamField>
+
+<CodeGroup tabs="cURL,JavaScript,Python">
+  ````bash
+  curl -H "Authorization: Bearer YOUR_PAT" \
+       https://api.github.com/user
+  ````
+  ````javascript
+  const response = await fetch('https://api.github.com/user', {
+    headers: {
+      'Authorization': 'Bearer YOUR_PAT'
+    }
+  });
+  const user = await response.json();
+  console.log(user);
+  ````
+  ````python
+  import requests
+  response = requests.get(
+    'https://api.github.com/user',
+    headers={'Authorization': 'Bearer YOUR_PAT'}
+  )
+  print(response.json())
+  ````
+</CodeGroup>
+
+  </Tab>
+  <Tab title="SSH Keys" icon="git-branch">
+    
+## Configure SSH Keys
+
+SSH keys provide secure, passwordless Git access.
+
+<Steps>
+  <Step title="Generate Key Pair">
+    
+````bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+````
+
+  </Step>
+  <Step title="Add to SSH Agent">
+    
+````bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+````
+
+  </Step>
+  <Step title="Upload Public Key">
+    Copy `~/.ssh/id_ed25519.pub` and add it in GitHub settings at `https://github.com/settings/keys`.
+  </Step>
+</Steps>
+
+Test the connection:
+````bash
+ssh -T git@github.com
+````
+
+  </Tab>
+  <Tab title="OAuth Apps" icon="plug">
+    Register OAuth apps for third-party integrations.
+    
+## Setup Steps
+
+1. Go to `https://github.com/settings/applications/new`.
+2. Enter app name, homepage, and authorization callback URL.
+3. Note the Client ID and generate a Client Secret.
+
+Use the Client ID and Secret for OAuth flows.
+
+<ParamField query="client_id" param-type="string" required="true">
+  Your OAuth app's client identifier.
+</ParamField>
+
+<ParamField query="client_secret" param-type="string" required="true">
+  Secret key for your app (keep private).
+</ParamField>
+
+  </Tab>
+</Tabs>
+
+## Organization and Team Permissions
+
+Manage access at the organization level.
+
+<Columns cols={2}>
+  <Card title="Repository Permissions" icon="repo" href="#">
+    Control read/write/admin access for repos.
+  </Card>
+  <Card title="Team Roles" icon="users" href="#">
+    Assign member, maintainer, or owner roles.
+  </Card>
+</Columns>
+
+Use base permissions like `read:org` or `write:org` in PAT scopes.
+
+## Two-Factor Authentication (2FA)
+
+Enable 2FA to protect your account.
+
+<Steps>
+  <Step title="Enable 2FA">
+    Go to `https://github.com/settings/security` and select **Enable two-factor authentication**.
+  </Step>
+  <Step title="Scan QR Code">
+    Use an authenticator app like Authy or Google Authenticator.
+  </Step>
+  <Step title="Save Recovery Codes">
+    Download and store recovery codes securely.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  After enabling 2FA, update your PATs or SSH keys if using Git operations.
+</Callout>
+
+<Expandable title="Advanced Permissions" default-open="false">
+  For fine-grained control, use custom roles and review audit logs at `https://github.com/organizations/YOUR_ORG/security`.
+</Expandable>

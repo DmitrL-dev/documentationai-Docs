@@ -1,0 +1,97 @@
+---
+title: Introduction to GitHub
+description: Discover GitHub, the leading AI-powered developer platform for building, collaborating, and delivering secure software with a global community of over 100 million users.
+---
+
+## Overview
+
+GitHub empowers you to build, scale, and deliver secure software with AI-powered tools. As the world's largest developer platform, it hosts over 100 million users and serves 90 of the Fortune 100 companies. Founded in 2008 and acquired by Microsoft in 2018, GitHub revolutionized code collaboration through version control, continuous integration, and now advanced AI features like GitHub Copilot.
+
+<Callout kind="info">
+GitHub combines Git's power with a vast ecosystem, enabling you to collaborate seamlessly while AI accelerates your workflow.
+</Callout>
+
+## Key AI-Powered Features
+
+GitHub integrates artificial intelligence to boost productivity across your development lifecycle.
+
+<Columns cols={3}>
+  <Card title="GitHub Copilot" icon="zap" href="https://github.com/features/copilot">
+    AI pair programmer that suggests code completions, functions, and entire tests in real-time.
+  </Card>
+  <Card title="Codespaces" icon="code" href="https://github.com/features/codespaces">
+    Instant cloud development environments with AI-optimized setups for any project.
+  </Card>
+  <Card title="Copilot Workspace" icon="cpu" href="https://github.com/features/copilot/workspace">
+    Plan, code, test, and iterate using natural language prompts in a unified workspace.
+  </Card>
+</Columns>
+
+## Benefits for You
+
+Choose GitHub based on your needs.
+
+<Tabs>
+  <Tab title="Individuals" icon="user">
+    Accelerate solo projects with free unlimited repositories, Copilot suggestions, and community packages from npm, NuGet, and more. Access 100 million+ open-source projects to learn and contribute.
+  </Tab>
+  <Tab title="Enterprises" icon="users">
+    Secure your codebase with advanced governance, Copilot Enterprise for custom AI trained on your data, and integrations with Azure DevOps. Scale teams with audit logs and IP indemnity.
+  </Tab>
+</Tabs>
+
+## Quick Start
+
+Get up and running in minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create a free account at [github.com/signup](https://github.com/signup).
+  </Step>
+  <Step title="Create Repository" icon="repo">
+    Click the `+` icon and select "New repository". Name it `my-first-repo`.
+  </Step>
+  <Step title="Clone and Push" icon="git-branch">
+    Use GitHub CLI or standard Git commands.
+
+    <CodeGroup tabs="CLI,git">
+      ```bash
+      gh repo clone YOUR_USERNAME/my-first-repo
+      echo "# My First Repo" > README.md
+      git add .
+      git commit -m "Initial commit"
+      git push origin main
+      ```
+      ```bash
+      git clone https://github.com/YOUR_USERNAME/my-first-repo.git
+      cd my-first-repo
+      echo "# My First Repo" > README.md
+      git add .
+      git commit -m "Initial commit"
+      git push origin main
+      ```
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Community and Ecosystem
+
+Join a thriving ecosystem with millions of repositories, packages, and Actions workflows. Explore trending topics, contribute to open source, or discover extensions in the GitHub Marketplace.
+
+<Callout kind="tip">
+Start exploring with [GitHub Explore](https://github.com/explore) for trending repositories and topics.
+</Callout>
+
+## Next Steps
+
+<Card title="Quickstart Guide" icon="book-open" href="/quickstart">
+  Dive deeper into repositories, branches, and pull requests.
+</Card>
+
+<Card title="Authentication" icon="key" href="/authentication">
+  Secure your account with SSH keys, personal access tokens, and GitHub Apps.
+</Card>
+
+<Card title="GitHub Copilot" icon="zap" href="/copilot">
+  Enable AI coding assistance across your IDEs.
+</Card>

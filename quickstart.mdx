@@ -1,0 +1,150 @@
+---
+title: GitHub Quickstart
+description: Get up and running with GitHub in minutes by creating your first repository and making your initial commit.
+---
+
+## Prerequisites
+
+Before starting, ensure you have Git installed on your machine. Git is the version control system that powers GitHub.
+
+<Callout kind="info">
+
+**Requirements:**
+- A web browser (Chrome, Firefox, Safari, or Edge)
+- Git version `>=2.30.0` (check with `git --version`)
+- A code editor like VS Code (optional but recommended)
+
+</Callout>
+
+Verify Git installation by opening your terminal and running:
+
+```bash
+git --version
+```
+
+If not installed, download it from [git-scm.com](https://git-scm.com/downloads).
+
+## Sign up for a GitHub account
+
+Create your free GitHub account to access unlimited public repositories.
+
+<Steps>
+  <Step title="Visit GitHub" icon="globe">
+    Go to [github.com](https://github.com) and click **Sign up**.
+  </Step>
+  <Step title="Enter details" icon="user">
+    Provide your email, password, and username. Verify your email address.
+  </Step>
+  <Step title="Complete setup" icon="check-circle">
+    Choose your free plan, skip the optional survey, and verify your account via email.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use a strong password and enable two-factor authentication later for security.
+</Callout>
+
+## Create your first repository
+
+Repositories store your code and collaboration history.
+
+<Steps>
+  <Step title="New repository" icon="plus">
+    Click the **+** icon in the top right, then select **New repository**.
+  </Step>
+  <Step title="Configure repo" icon="settings">
+    Name it `my-first-project`. Add a description like "My first GitHub repository". Make it public and check **Add a README file**.
+  </Step>
+  <Step title="Create" icon="git-commit">
+    Click **Create repository**. You're now on your repo's main page.
+  </Step>
+</Steps>
+
+Your repo URL is `https://github.com/YOUR_USERNAME/my-first-project`. Replace `YOUR_USERNAME` with your actual username.
+
+## Clone the repository locally
+
+Clone brings your repo to your local machine for editing.
+
+<Tabs>
+  <Tab title="macOS/Linux" icon="apple">
+    Open Terminal and run:
+    ````bash
+    git clone https://github.com/YOUR_USERNAME/my-first-project.git
+    cd my-first-project
+    ````
+  </Tab>
+  <Tab title="Windows" icon="monitor">
+    Open Git Bash or PowerShell and run:
+    ````bash
+    git clone https://github.com/YOUR_USERNAME/my-first-project.git
+    cd my-first-project
+    ````
+  </Tab>
+</Tabs>
+
+## Make and push your first commit
+
+Edit files locally and sync changes to GitHub.
+
+<Steps>
+  <Step title="Create a file" icon="file-plus">
+    Create `hello.js`:
+    ````javascript
+    console.log("Hello, GitHub!");
+    ````
+  </Step>
+  <Step title="Stage and commit" icon="git-commit">
+    Run these commands:
+    ````bash
+    git add .
+    git commit -m "Add hello.js - my first commit"
+    ````
+  </Step>
+  <Step title="Push changes" icon="upload-cloud">
+    Push to GitHub:
+    ````bash
+    git push origin main
+    ````
+    Authenticate with your GitHub credentials or personal access token if prompted.
+  </Step>
+</Steps>
+
+Refresh your repo page on GitHub. You see `hello.js` and your commit!
+
+<CodeGroup tabs="Node.js,Browser">
+  ```javascript
+  // Run locally: node hello.js
+  console.log("Hello, GitHub!");
+  ```
+  ```javascript
+  // Paste in browser console
+  console.log("Hello, GitHub!");
+  ```
+</CodeGroup>
+
+## Explore the GitHub dashboard
+
+Your dashboard shows repositories, activity, and recommendations.
+
+<Columns cols={3}>
+  <Card title="Repositories" icon="git-branch" href="/introduction">
+    Manage all your repos here.
+  </Card>
+  <Card title="Pull Requests" icon="git-pull-request" href="/authentication">
+    Collaborate on code changes.
+  </Card>
+  <Card title="Issues" icon="bug" href="/changelog">
+    Track bugs and features.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+  Congratulations! You've completed the quickstart. Next, explore branches, pull requests, or GitHub Actions.
+</Callout>
+
+## Next steps
+
+- Learn authentication flows at [/authentication](/authentication)
+- Dive into advanced Git at [/introduction](/introduction)
+- Check release notes at [/changelog](/changelog)
